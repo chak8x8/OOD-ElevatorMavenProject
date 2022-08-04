@@ -155,7 +155,7 @@ import javax.swing.Timer;
 						// Display values options near lift
 						// Uncomment any display option you want
 						drawValueToSide("" + elevators.get(i).getCurrentFloor(), graphics);
-						//drawValueAbove(graphics, "" + elevators.get(i).getPeople(), liftPoint);
+						drawValueAbove(graphics, "" + elevators.get(i).getPeople(), liftPoint);
 						//drawStringToSide(liftLabelText, graphics);
 						//drawStringInBase(this, graphics, liftLabelText, liftPoint);
 
