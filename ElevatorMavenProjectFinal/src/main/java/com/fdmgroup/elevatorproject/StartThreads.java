@@ -25,7 +25,7 @@ public class StartThreads {
 			// ec.commandAdd("3:8:6");
 			// ec.commandAdd("1:6:7");
 			// ec.commandAdd("10:1:6");
-			// System.out.println(ec.getCommandList().size());
+			// System.out.println(ec.getCommandList().size()); //4:1:2,3:8:6,1:6:7,10:1:6
 			Thread.sleep(100);
 			ec.run();
 			// ec.commandAdd("exit");

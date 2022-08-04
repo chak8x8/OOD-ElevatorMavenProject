@@ -392,8 +392,91 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 		return 0;
 	}
 
+	//getters and setters: 
 	@Override
 	public int getCurrentFloor() {
 		return currentFloor;
+	}
+	
+	@Override
+	public int getPeople() {
+		return currentPersonNum;
+	}
+	
+	public RunningState getRunningState() {
+		return runningState;
+	}
+	
+	@Override
+	public DoorState getDoorState() {
+		return doorState;
+	}
+
+	public static int getElevatorCounter() {
+		return elevatorCounter;
+	}
+
+	public static void setElevatorCounter(int elevatorCounter) {
+		Elevator.elevatorCounter = elevatorCounter;
+	}
+
+	public void setRunningState(RunningState runningState) {
+		this.runningState = runningState;
+	}
+
+	public void setDoorState(DoorState doorState) {
+		this.doorState = doorState;
+	}
+
+	public ArrayList<ArrayList<Integer>> getUpList() {
+		return upList;
+	}
+
+	public void setUpList(ArrayList<ArrayList<Integer>> upList) {
+		this.upList = upList;
+	}
+
+	public ArrayList<ArrayList<Integer>> getDownList() {
+		return downList;
+	}
+
+	public void setDownList(ArrayList<ArrayList<Integer>> downList) {
+		this.downList = downList;
+	}
+
+	public Thread getThread() {
+		return thread;
+	}
+
+	public void setThread(Thread thread) {
+		this.thread = thread;
+	}
+
+	public void setCurrentPersonNum(int currentPersonNum) {
+		this.currentPersonNum = currentPersonNum;
+	}
+
+	public boolean isExit() {
+		return isExit;
+	}
+
+	public void setExit(boolean isExit) {
+		this.isExit = isExit;
+	}
+
+	public boolean isDealExit() {
+		return dealExit;
+	}
+
+	public void setDealExit(boolean dealExit) {
+		this.dealExit = dealExit;
+	}
+
+	public void setElevatorID(int elevatorID) {
+		this.elevatorID = elevatorID;
+	}
+
+	public void setCurrentFloor(int currentFloor) {
+		this.currentFloor = currentFloor;
 	}
 }

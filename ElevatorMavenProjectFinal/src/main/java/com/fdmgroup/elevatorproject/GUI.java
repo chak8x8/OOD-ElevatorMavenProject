@@ -1,22 +1,20 @@
 package com.fdmgroup.elevatorproject;
 
-	//package MultiThread_ElevatorV1;
-
-	import java.awt.FontMetrics;
-	import java.awt.Color;
-	import java.awt.Dimension;
-	import java.awt.Font;
-	import java.awt.Graphics;
-	import java.awt.MouseInfo;
-	import java.awt.Point;
-	import java.awt.event.ActionEvent;
-	import java.awt.event.ActionListener;
-	import java.util.ArrayList;
-	import java.util.List;
-	import javax.swing.JComponent;
-	import javax.swing.JFrame;
-	import javax.swing.SwingUtilities;
-	import javax.swing.Timer;
+import java.awt.FontMetrics;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 
 	/**
@@ -158,15 +156,15 @@ package com.fdmgroup.elevatorproject;
 						// Uncomment any display option you want
 						drawValueToSide("" + elevators.get(i).getCurrentFloor(), graphics);
 						//drawValueAbove(graphics, "" + elevators.get(i).getPeople(), liftPoint);
-						// drawStringToSide(liftLabelText, graphics);
+						//drawStringToSide(liftLabelText, graphics);
 						//drawStringInBase(this, graphics, liftLabelText, liftPoint);
 
-						//graphics.setColor(getStateColor(i)); // use to show elevator state if implemented
+						graphics.setColor(getStateColor(i)); // use to show elevator state if implemented
 						// graphics.setColor(Color.GRAY); // if not using state use this
 
 						graphics.fillRect(liftPoint.x, liftPoint.y, liftDimension.width, liftDimension.height);
 
-						graphics.setColor(Color.BLACK); // Draw frame for elevator
+						graphics.setColor(Color.BLACK); // Draw frame for elevator 
 						graphics.drawRect(liftPoint.x, liftPoint.y, liftDimension.width, liftDimension.height);
 					}
 
@@ -238,28 +236,28 @@ package com.fdmgroup.elevatorproject;
 		 * @param the elevator number
 		 * @return the colour to use
 		 */
-//		private Color getStateColor(int i)
-//		{
-//
-//			Color color = Color.GRAY;
-//
-//			switch (elevators.get(i).getState())
-//			{
-//				case MOVING:
-//					color = Color.RED;
-//					break;
-//				case STOPPING:
-//					color = Color.YELLOW;
-//					break;
-//				case IDLE:
-//					color = Color.LIGHT_GRAY;
-//					break;
-//				default:
-//					throw new IllegalArgumentException("Unexpected value: " + elevators.get(i).getState());
-//			}
-//
-//			return color;
-//		}
+		private Color getStateColor(int i)
+		{
+
+			Color color = Color.GRAY;
+
+			switch (elevators.get(i).getDoorState())
+			{
+				case doorOpening: //TODO originally running state i.e.case MOVING, STOPPING, IDLE? 
+					color = Color.GREEN;
+					break;
+				case doorClosing:
+					color = Color.RED;
+					break;
+				case doorClosed:
+					color = Color.LIGHT_GRAY;
+					break;
+				default:
+					throw new IllegalArgumentException("Unexpected value: " + elevators.get(i).getDoorState());
+			}
+
+			return color;
+		}
 
 		/**
 		 * Optional method to display a string value to the right of the elevator in a
