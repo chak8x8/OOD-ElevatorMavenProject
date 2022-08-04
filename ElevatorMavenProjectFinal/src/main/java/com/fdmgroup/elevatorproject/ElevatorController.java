@@ -1,18 +1,17 @@
 package com.fdmgroup.elevatorproject;
 import java.io.*;
 import java.util.*;
-//import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class ElevatorController {
-	private ElevatorView elevatorView;
 	private ArrayList<ArrayList<Integer>> commandList;
 	private ArrayList<Elevator> elevatorList;
 	private boolean isExit;
 	// private static final Logger LOGGER =
-	// LogManager.getLogger(ElevatorController.class);
+	// LogManager.getLogger(ElevatorController.class); //TODO 
 
 	public ElevatorController() {
-		elevatorView = new ElevatorView();
 		commandList = new ArrayList<ArrayList<Integer>>();
 		elevatorList = new ArrayList<Elevator>();
 		isExit = false;
@@ -143,7 +142,7 @@ public class ElevatorController {
 					}
 				}
 			}
-			elevatorView.display(elevatorList);
+			
 			if (isExit)
 				break;
 			if (sc.hasNextLine()) {

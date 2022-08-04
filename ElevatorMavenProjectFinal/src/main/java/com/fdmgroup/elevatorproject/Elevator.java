@@ -1,7 +1,10 @@
 package com.fdmgroup.elevatorproject;
 import java.util.*;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
+	
 	private static int elevatorCounter = 0;
 	private int elevatorID;
 	private int currentFloor;
@@ -10,21 +13,10 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 	private ArrayList<ArrayList<Integer>> upList;
 	private ArrayList<ArrayList<Integer>> downList;
 	private Thread thread;
-	// private int source;
-	// private int dest;
 	private int currentPersonNum;
-
-//	private Messages messages;
 	private boolean isExit;
 	private boolean dealExit;
 
-	// TODO:
-//	
-//	public Elevator(Messages messages,int startFloor) {
-//		this();
-//		currentFloor=startFloor;
-//		this.messages=messages;
-//	}
 	public Elevator(int startFloor) {
 		this();
 		currentFloor = startFloor;
@@ -362,7 +354,6 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 			dealExit = false;
 			thread = new Thread(this, "Thread - " + elevatorID);
 			thread.start();
-			// System.out.println("------------" + thread.getName());
 		}
 	}
 

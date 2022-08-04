@@ -1,12 +1,12 @@
 package com.fdmgroup.elevatorproject;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
-//package com.fdm.threads;
-
-public class StartThreads1 {
+public class StartThreads {
 
 	public static void main(String[] args) {
 		String title;
-		/*
+		/* TODO 
 		 * ArrayList<Elevator> elevators=new ArrayList<Elevator>(); for(int
 		 * i=0;i<Const.numOfElevators;i++) { elevators.add(new Elevator(1)); }
 		 */
@@ -21,7 +21,7 @@ public class StartThreads1 {
 			graphics.start();
 			// Thread.sleep(3000); // sleep to ensure all elevators start at bottom
 
-			// ec.commandAdd("4:1:2");
+			// ec.commandAdd("4:1:2"); //TODO 
 			// ec.commandAdd("3:8:6");
 			// ec.commandAdd("1:6:7");
 			// ec.commandAdd("10:1:6");
@@ -42,27 +42,5 @@ public class StartThreads1 {
 		}
 
 	}
-
-	/**
-	 * Print all the contents of an Events
-	 * 
-	 * @param output
-	 *
-	 *               private static void printOutput(Events output) {
-	 * 
-	 *               int length = output.length() + 1;
-	 * 
-	 *               System.out.println("\nOutput Messages\n");
-	 * 
-	 *               for (int i = 1; i < length; i++) { for (String message :
-	 *               output.getAllEventMessages(i)) System.out.println("Tread " + i
-	 *               + " " + message);
-	 * 
-	 *               System.out.println();
-	 * 
-	 *               }
-	 * 
-	 *               }
-	 */
 
 }
