@@ -8,6 +8,7 @@ public class ElevatorController {
 	private ArrayList<ArrayList<Integer>> commandList;
 	private ArrayList<Elevator> elevatorList;
 	private boolean isExit;
+	private int joinCount = 0;
 	// private static final Logger LOGGER =
 	// LogManager.getLogger(ElevatorController.class); //TODO 
 
@@ -44,8 +45,9 @@ public class ElevatorController {
 	}
 
 	public boolean validateInput(String instruction) {
+		instruction = instruction.replaceAll("\\s+","");
 		String[] instructionArray = instruction.split(",");
-
+		
 		for (String inst : instructionArray) {
 
 			for (int i = 0; i < inst.length(); i++) {
@@ -158,6 +160,7 @@ public class ElevatorController {
 	public void join() {
 		for (int i = 0; i < elevatorList.size(); i++) {
 			elevatorList.get(i).join();
+			joinCount++;
 		}
 	}
 
@@ -223,6 +226,18 @@ public class ElevatorController {
 
 	public ArrayList<Elevator> getElevatorList() {
 		return elevatorList;
+	}
+	
+	public boolean getIsExit() {
+		return isExit;
+	}
+	
+	public int getJoinCount() {
+		return this.joinCount;
+	}
+	
+	public void setIsExitTrue() {
+		this.isExit = true;
 	}
 
 }

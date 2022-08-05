@@ -4,15 +4,14 @@ import org.apache.logging.log4j.LogManager;
 
 public class StartThreads {
 
-	public static void main(String[] args) {
-		String title;
+	public static void main(String[] args) { 
 		/* TODO 
 		 * ArrayList<Elevator> elevators=new ArrayList<Elevator>(); for(int
 		 * i=0;i<Const.numOfElevators;i++) { elevators.add(new Elevator(1)); }
 		 */
 		ElevatorController ec = new ElevatorController();
 
-		title = "Simulation for " + Const.numOfFloors + " Floors and " + Const.numOfElevators + " Elevators";
+		//title = "Simulation for " + Const.numOfFloors + " Floors and " + Const.numOfElevators + " Elevators";
 
 		try {
 			ec.readConfig();
