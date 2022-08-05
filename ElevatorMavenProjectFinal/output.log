@@ -1,0 +1,11 @@
+21:44:56.315 [main] INFO  com.fdmgroup.elevatorproject.ElevatorController - Test message
+21:44:56.353 [main] INFO  com.fdmgroup.elevatorproject.Elevator - Elevator created:1
+21:44:56.353 [main] INFO  com.fdmgroup.elevatorproject.Elevator - Elevator created:2
+21:44:56.353 [main] INFO  com.fdmgroup.elevatorproject.Elevator - Elevator created:3
+21:44:56.354 [main] INFO  com.fdmgroup.elevatorproject.Elevator - Elevator created:4
+21:44:56.356 [main] ERROR com.fdmgroup.elevatorproject.ElevatorController - Invalid Command: Please follow specified format: 'Source:Destination:People'
+21:44:56.357 [main] INFO  com.fdmgroup.elevatorproject.ElevatorController - The floor command is valid
+21:44:56.616 [main] INFO  com.fdmgroup.elevatorproject.Elevator - Created Thread - 1
+21:44:56.625 [main] INFO  com.fdmgroup.elevatorproject.Elevator - Created Thread - 2
+21:44:56.627 [main] INFO  com.fdmgroup.elevatorproject.Elevator - Created Thread - 3
+21:44:56.627 [main] INFO  com.fdmgroup.elevatorproject.Elevator - Created Thread - 4

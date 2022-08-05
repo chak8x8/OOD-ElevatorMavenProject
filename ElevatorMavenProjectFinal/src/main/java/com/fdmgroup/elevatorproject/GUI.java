@@ -58,8 +58,6 @@ import javax.swing.Timer;
 		Dimension levelLabelDimension; // Label dimensions
 		FontMetrics fm; // Font metrics for font used in graphics
 		
-		//private static final Logger LOGGER = LogManager.getLogger(ElevatorView.class);
-		
 
 		/**
 		 * Constructor for the FrameFiew

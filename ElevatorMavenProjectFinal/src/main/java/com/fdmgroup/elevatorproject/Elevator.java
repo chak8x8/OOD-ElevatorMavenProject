@@ -24,6 +24,7 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 	private int currentPersonNum;				// Current number of people in an elevator
 	private boolean isExit; 					// For checking if an input command is "exit"
 	private boolean dealExit; 					// Input command is "exit"
+	private static final Logger LOGGER = LogManager.getLogger(Elevator.class); 
 
 	/**
 	 * Constructor Elevator 
@@ -56,7 +57,8 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 		isExit = false;
 		dealExit = false;
 
-		System.out.println("created Elevator :" + elevatorID);
+		LOGGER.info("Elevator created: " + elevatorID); 
+
 	}
 
 	/**
@@ -366,6 +368,7 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 	 * Decides a state of an elevator's door and whether an idle elevator should take a command
 	 * and whether it should go upwards or downwards
 	 * 
+	 * @param setState - running state of elevator
 	 * @param list1 - a list of command lists
 	 * @param list2 - a list of command lists
 	 * 
@@ -472,6 +475,7 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 			dealExit = false;
 			thread = new Thread(this, "Thread - " + elevatorID);
 			thread.start();
+			LOGGER.info("Created " + thread.getName()); 
 		}
 	}
 

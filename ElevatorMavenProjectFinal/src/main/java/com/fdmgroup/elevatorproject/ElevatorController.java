@@ -19,8 +19,7 @@ public class ElevatorController {
 	private ArrayList<Elevator> elevatorList;
 	private boolean isExit;
 	private int joinCount = 0;
-	// private static final Logger LOGGER =
-	// LogManager.getLogger(ElevatorController.class); //TODO 
+	private static final Logger LOGGER = LogManager.getLogger(ElevatorController.class);
 
 	/**
 	 * Constructor ElevatorController 
@@ -29,7 +28,6 @@ public class ElevatorController {
 	 */
 	
 	public ElevatorController() {
-		
 		commandList = new ArrayList<ArrayList<Integer>>();	// List containing source and destination floor numbers
 		elevatorList = new ArrayList<Elevator>();			// List contaning existing elevators in a building
 		isExit = false;										// Input command is "exit" - elevator system stops
@@ -91,6 +89,7 @@ public class ElevatorController {
 				if (!Character.isDigit(inst.charAt(i))) {
 					if (inst.charAt(i) != ':') {
 						// Returning false as a character is not a digit or a colon
+						LOGGER.error("Invalid floor spliter detected(!= ':')");
 						return false;
 					}
 				}
@@ -99,66 +98,35 @@ public class ElevatorController {
 			// Checking if floors exist in a building
 			String[] floorRequest = inst.split(":");
 
-//			if(invalidCommand(floorRequest)) {
-//				//LOGGER.error("Invalid floor command");
-//				return false;
-//			}
-//
-//	public boolean invalidCommand(String[] floorRequest) {
-//		if (floorRequest.length != 3) {
-//			// LOGGER.error("More than 3 floor in the command (!=3)");
-//			return true;
-//
-//		} else if (Integer.parseInt(floorRequest[0]) < Const.minFloor
-//				|| Integer.parseInt(floorRequest[0]) > Const.maxFloor) {
-//			// LOGGER.error("Source Floor outOfBound (floor[0])");
-//			return true;
-//
-//		} else if (Integer.parseInt(floorRequest[1]) < Const.minFloor
-//				|| Integer.parseInt(floorRequest[1]) > Const.maxFloor) {
-//			// LOGGER.error("Destination Floor outOfBound (floor[1])");
-//			return true;
-//
-//		} else if (Integer.parseInt(floorRequest[0]) == Integer.parseInt(floorRequest[1])) {
-//			// LOGGER.error("Same Floor Movement (floor[0] = floor[1])");
-//			return true;
-//
-//		} else if (Integer.parseInt(floorRequest[2]) <= 0
-//				|| Integer.parseInt(floorRequest[2]) > Const.maxCapPerCommand) {
-//			// LOGGER.info("No people or the number of people is more than the elevator's
-//			// maxmium capacity");
-//			return true;
-//		}
-//
-//		// LOGGER.info("The floor command is valid");
-//		return false;
-//
-//	}
-
 			if (floorRequest.length != 3) {
+				LOGGER.error("Invalid Command: Please follow specified format: 'Source:Destination:People'");
 				return false;
 			}
 
 			if (Integer.parseInt(floorRequest[0]) < Const.minFloor
 					|| Integer.parseInt(floorRequest[0]) > Const.maxFloor) {
+				LOGGER.error("Source Floor outOfBound (floor[0])");
 				return false;
 			}
 
 			if (Integer.parseInt(floorRequest[1]) < Const.minFloor
 					|| Integer.parseInt(floorRequest[1]) > Const.maxFloor) {
+				LOGGER.error("Destination Floor outOfBound (floor[1])");
 				return false;
 			}
 
 			if (Integer.parseInt(floorRequest[0]) == Integer.parseInt(floorRequest[1])) {
+				LOGGER.error("Same Floor Movement (floor[0] = floor[1])");
 				return false;
 			}
 
 			if (Integer.parseInt(floorRequest[2]) <= 0 || Integer.parseInt(floorRequest[2]) > Const.maxCapPerCommand) {
+				LOGGER.error("Same Floor Movement (floor[0] = floor[1])");
 				return false;
 			}
 
 		}
-
+		LOGGER.info("The floor command is valid");
 		return true;
 	}
 
@@ -173,7 +141,7 @@ public class ElevatorController {
 		// readConfig();
 		isExit = false;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("please input command:");
+		System.out.println("Please input command:");
 		
 		// Activating elevator(s)
 		for (int i = 0; i < elevatorList.size(); i++) {
