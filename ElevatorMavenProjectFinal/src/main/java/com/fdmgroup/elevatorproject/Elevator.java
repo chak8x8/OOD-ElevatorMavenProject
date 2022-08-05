@@ -201,6 +201,7 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 		
 		if (d > s) {
 			if (s > currentFloor) {
+
 				
 				// Deciding on how many people that can be picked and if a further command can be taken
 				int rest = calRestCapUp(s, d);	// Amount of people allowed to enter an elevator
@@ -369,7 +370,7 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 	 * @param list2 - a list of command lists
 	 * 
 	 */
-	private void subRun(RunningState setSate, ArrayList<ArrayList<Integer>> list1,
+	public void subRun(RunningState setSate, ArrayList<ArrayList<Integer>> list1,
 			ArrayList<ArrayList<Integer>> list2) {
 
 		// If door closed
