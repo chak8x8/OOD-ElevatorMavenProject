@@ -163,7 +163,6 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 				// To decide how many people that can be picked and decide if any furthur
 				// command can be taken.
 				int rest = calRestCapUp(s, d);
-
 				if (num > rest) {
 					upList.add(valueList(s, rest, 0));
 					upList.add(valueList(d, 0, rest));
@@ -285,7 +284,7 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 
 	}
 
-	private void subRun(RunningState setSate, ArrayList<ArrayList<Integer>> list1,
+	public void subRun(RunningState setSate, ArrayList<ArrayList<Integer>> list1,
 			ArrayList<ArrayList<Integer>> list2) {
 
 		if (doorState == DoorState.doorClosed) {
