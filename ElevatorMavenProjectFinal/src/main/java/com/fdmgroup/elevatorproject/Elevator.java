@@ -455,7 +455,7 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 					}
 				}
 				thread.sleep(1000);
-				System.out.println("help : " + currentInfo());
+				System.out.println("elevator : " + currentInfo());
 			}
 
 		} catch (InterruptedException e) {
@@ -508,7 +508,7 @@ public class Elevator implements Runnable, Comparable<Elevator>, FrameGUI {
 			if (doorState != DoorState.doorClosed)
 				info += " doorState : " + doorState.toString();
 		}
-		info += " person : " + currentPersonNum;
+		info += ", person(s) : " + currentPersonNum;
 		return info;
 	}
 

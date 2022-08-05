@@ -13,7 +13,8 @@ import org.apache.logging.log4j.LogManager;
 
 public class StartThreads {
 
-
+	private static final Logger LOGGER = LogManager.getLogger(StartThreads.class); 
+	
 	/**
 	 * Method main
 	 * Instantiates instances of ElevatorController class and GUI class
@@ -24,35 +25,56 @@ public class StartThreads {
 	 */
 	
 	public static void main(String[] args) {
-		String title;
-
-		/* TODO 
-		 * ArrayList<Elevator> elevators=new ArrayList<Elevator>(); for(int
-		 * i=0;i<Const.numOfElevators;i++) { elevators.add(new Elevator(1)); }
-		 */
+		
 		ElevatorController ec = new ElevatorController();
 
-		//title = "Simulation for " + Const.numOfFloors + " Floors and " + Const.numOfElevators + " Elevators";
-
 		try {
+			/*
+			 * The program can be configured through config.txt where lines represent:
+			 * 1.Number of elevators
+			 * 2.Number of floors
+			 * 3.Maximum capacity (persons) for an elevator
+			 * 4.Maximum limit (persons) for an individual command
+			 * 5.Minimum/Lowest floor
+			 * 6. onwards: commands to be executed (format - source:destination:people)
+			 */
+			
 			ec.readConfig();
+			
+			String title;
+			title = "Simulation for " + Const.numOfFloors + " Floors and " + Const.numOfElevators + " Elevators";
+			LOGGER.info(title);
+			
 			GUI view = new GUI(ec.getElevatorList());
 			Thread graphics = new Thread(view);
+			
 			graphics.start();
-			// Thread.sleep(3000); // sleep to ensure all elevators start at bottom
+			
+			Thread.sleep(2000); // sleep to ensure all elevators start at bottom
 
-			// ec.commandAdd("4:1:2"); //TODO 
-			// ec.commandAdd("3:8:6");
-			// ec.commandAdd("1:6:7");
-			// ec.commandAdd("10:1:6");
-			// System.out.println(ec.getCommandList().size()); //4:1:2,3:8:6,1:6:7,10:1:6
-			Thread.sleep(100);
+			/*
+			 * Section to pass in commands at start of program.
+			 * To start, commands can also be passed in through line 6 and onwards of config.txt.
+			 * Commands can manually be passed in through typing into the running console as well.
+			 */
+			
+			//(Un)Comment and add commands as necessary: 
+			ec.commandAdd("4:1:2,3:8:6"); 
+			ec.commandAdd("2:3:1");
+			
+			/*
+			 * To terminate the program: Close GUI or terminate console.
+			 * To exit and return all elevators to level 0: Enter 'exit' in console.
+			 */
+			
+			Thread.sleep(1000);
+			
 			ec.run();
-			// ec.commandAdd("exit");
 
 			ec.join();
 
 			Thread.sleep(2000);
+			
 			view.close();
 
 			System.out.println("Exit");

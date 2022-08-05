@@ -141,7 +141,7 @@ public class ElevatorController {
 		// readConfig();
 		isExit = false;
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Please input command:");
+		System.out.println("Please input command(s):");
 		
 		// Activating elevator(s)
 		for (int i = 0; i < elevatorList.size(); i++) {
