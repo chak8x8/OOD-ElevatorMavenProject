@@ -277,7 +277,7 @@ class ElevatorTest {
 	@Test
 	void currentInfo_returns_formatted_info() {
 		elevator.setElevatorID(24);
-		String StringCurrentInfo = "24 :  currentFloor = 0 state : idle person : 0";
+		String StringCurrentInfo = "24 :  currentFloor = 0 state : idle , person(s) : 0";
 		assertEquals(StringCurrentInfo, elevator.currentInfo());
 	}
 	
@@ -286,7 +286,7 @@ class ElevatorTest {
 	void currentInfo_returns_formatted_info_for_moving_elevator() {
 		elevator.setElevatorID(26);
 		elevator.setRunningState(RunningState.movingDown);
-		String StringCurrentInfo = "26 :  currentFloor = 0 state : movingDown person : 0";
+		String StringCurrentInfo = "26 :  currentFloor = 0 state : movingDown , person(s) : 0";
 		assertEquals(StringCurrentInfo, elevator.currentInfo());
 	}
 	
