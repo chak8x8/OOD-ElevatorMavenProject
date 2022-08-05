@@ -2,9 +2,30 @@ package com.fdmgroup.elevatorproject;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+/**
+ * Class        StartThreads1
+ * A class that contains a main method to run an elevator controller.
+ *
+ * @author      TeamGreat
+ * @version		3/8/22 initial version
+ * 
+ */
+
 public class StartThreads {
 
-	public static void main(String[] args) { 
+
+	/**
+	 * Method main
+	 * Instantiates instances of ElevatorController class and GUI class
+	 * to run the elevator controller and display graphical demonstration of elevator system
+	 * 
+	 * @param args arguments of the main method
+	 * 
+	 */
+	
+	public static void main(String[] args) {
+		String title;
+
 		/* TODO 
 		 * ArrayList<Elevator> elevators=new ArrayList<Elevator>(); for(int
 		 * i=0;i<Const.numOfElevators;i++) { elevators.add(new Elevator(1)); }

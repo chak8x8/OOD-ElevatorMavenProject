@@ -64,11 +64,7 @@ import javax.swing.Timer;
 		/**
 		 * Constructor for the FrameFiew
 		 * 
-		 * @param minFloor  the bottom floor
-		 * @param maxFloor  the top floor usually add one to make them all display
-		 *                  clearly
-		 * @param numLift   the number of lifts used
-		 * @param elevators A list of the elevator instances used in simulation
+		 * @param elevators a list of elevators
 		 */
 		public GUI(final List<Elevator> elevators)
 		{
